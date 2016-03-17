@@ -91,14 +91,17 @@ def generate_self(nbcols=2, nbrows=8, colwidth=250, rowhight=300, depth=400, woo
 
 
 # Left Part
-shelf = generate_self(nbcols=2, nbrows=9, colwidth=250, name='meuble_gauche')
+shelfA = generate_self(nbcols=2, nbrows=9, colwidth=250, name='meuble_gauche')
+shelfA.ViewObject.ShapeColor = (0.80, 0.80, 0.40)
 
 # Central part
-shelf = generate_self(nbcols=1, nbrows=9, colwidth=500, ignorerows=[5, 6, 7], name='meuble_central')
-shelf.Placement.Base = FreeCAD.Vector(560, 0, 0)
+shelfB = generate_self(nbcols=1, nbrows=9, colwidth=500, ignorerows=[5, 6, 7], name='meuble_central')
+shelfB.Placement.Base = FreeCAD.Vector(560, 0, 0)
+shelfB.ViewObject.ShapeColor = (0.27, 0.80, 0.80)
 
 # Right part
-shelf = generate_self(nbcols=1, nbrows=9, colwidth=500, ignorerows=[5, 7], name='meuble_droit')
-shelf.Placement.Base = FreeCAD.Vector(1100, 0, 0)
+shelfC = generate_self(nbcols=1, nbrows=9, colwidth=500, ignorerows=[5, 7], name='meuble_droit')
+shelfC.Placement.Base = FreeCAD.Vector(1100, 0, 0)
+shelfC.ViewObject.ShapeColor = (0.80, 0.53, 0.80)
 
 FreeCAD.ActiveDocument.recompute()
