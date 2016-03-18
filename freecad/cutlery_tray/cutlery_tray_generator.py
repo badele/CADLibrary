@@ -9,6 +9,8 @@ if FreeCAD.ActiveDocument and FreeCAD.ActiveDocument.Name == "cutlery_tray":
     FreeCAD.closeDocument("cutlery_tray")
 FreeCAD.newDocument('cutlery_tray')
 
+INVENTORY = {}
+
 
 # Get objects by groupname
 def getGroupObjects(groupname, begin=True):
@@ -40,8 +42,40 @@ def compoundObjects(objectname, objectslist):
 # Create box
 def makebox(width=0, depth=0, height=70, pos=FreeCAD.Vector(), name="", id=""):
     doc = FreeCAD.ActiveDocument
+
+    # Create Box
     etagere = doc.addObject("Part::Feature", '%(name)s_horizontal%(id)s' % locals())
     etagere.Shape = Part.makeBox(width, depth, height, pos)
+
+    # Add to inventory
+    mini = min(width,depth)
+    maxi = max(width,depth)
+    values = '%smm x %smm x %s mm' % (maxi, mini, height)
+    values = (maxi, mini, height)
+
+    INVENTORY[name] = INVENTORY.get(name,{})
+    INVENTORY[name][values] = INVENTORY[name].get(values,0) + 1
+
+# Show Inventory
+def show_inventory():
+    for objname in INVENTORY.keys():
+        sizename=len(objname)
+        print objname
+        print "="*sizename
+        print
+
+        total = 0
+        sizeresult = 0
+        for element in INVENTORY[objname].keys():
+            width, depth, height = element
+            total += width * INVENTORY[objname][element]
+            result = "    %s * %smm x %smm x %smm" % (INVENTORY[objname][element], width, depth, height)
+            sizeresult = max(sizeresult, len(result)-4)
+            print result
+        print "    "+"-"*sizeresult
+        print "    TOTAL: %smm x %smm x %smm" %  (total, depth, height)
+        print ""
+        print ""
 
 
 # Create customized shelf
@@ -111,5 +145,8 @@ cutleryC = generate_separator(width=280, depth=360, woodwidth=10, cutlerydepth=2
                               name='cutleryC')
 cutleryC.Placement.Base = FreeCAD.Vector(600, 0, 0)
 cutleryC.ViewObject.ShapeColor = (0.80, 0.53, 0.80)
+
+# Show inventory
+show_inventory()
 
 FreeCAD.ActiveDocument.recompute()
