@@ -4,9 +4,9 @@
 **Code**
 
 ```python
-cutleryA = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=160, nblongcols=1, nbshortcols=3, name='cutleryA')
-cutleryB = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=260, nblongcols=1, nbshortcols=3, name='cutleryB')
-cutleryC = generate_separator(width=280, depth=360, woodwidth=10, cutlerydepth=260, nblongcols=2, nbshortcols=2, name='cutleryC')
+cutleryA = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=160, nblongcols=1, nbshortcols=3, nbrows=3, name='cutleryA')
+cutleryB = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=260, nblongcols=1, nbshortcols=3, nbrows=2, name='cutleryB')
+cutleryC = generate_separator(width=280, depth=360, woodwidth=10, cutlerydepth=260, nblongcols=2, nbshortcols=2, nbrows=1, name='cutleryC')
 ```
 
 **Materials shopping list result**

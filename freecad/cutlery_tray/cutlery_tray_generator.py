@@ -80,12 +80,11 @@ def show_inventory():
 
 # Create customized shelf
 def generate_separator(width=280, depth=420, height=70, woodwidth=10, cutlerydepth=260, nblongcols=1, nbshortcols=3,
-                       name='separator'):
+                       nbrows=2, name='separator'):
     doc = FreeCAD.ActiveDocument
 
     # Compute cols dimension
     rowsdepth = depth - cutlerydepth - 3 * woodwidth
-    nbrows = rowsdepth / (55 + woodwidth)
 
     nbcols = nblongcols + nbshortcols
     freewidth = width - 2 * woodwidth - ((nbcols - 1) * woodwidth)
@@ -117,10 +116,11 @@ def generate_separator(width=280, depth=420, height=70, woodwidth=10, cutlerydep
     rowspace = freedepth / float(nbrows)
 
     # Rows
-    makebox(shortwidth, woodwidth, height, FreeCAD.Vector(leftshortposx, rowposy, 0), name=name)
-    for y in range(1, nbrows):
-        posy = rowposy + woodwidth + (y * rowspace) + ((y - 1) * woodwidth)
-        makebox(shortwidth, woodwidth, height, FreeCAD.Vector(leftshortposx, posy, 0), name=name)
+    if nbrows>0:
+        makebox(shortwidth, woodwidth, height, FreeCAD.Vector(leftshortposx, rowposy, 0), name=name)
+        for y in range(1, nbrows):
+            posy = rowposy + woodwidth + (y * rowspace) + ((y - 1) * woodwidth)
+            makebox(shortwidth, woodwidth, height, FreeCAD.Vector(leftshortposx, posy, 0), name=name)
 
     # Compound object
     objs = getGroupObjects(name)
@@ -133,16 +133,16 @@ def generate_separator(width=280, depth=420, height=70, woodwidth=10, cutlerydep
 doc = FreeCAD.ActiveDocument
 
 cutleryA = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=160, nblongcols=1, nbshortcols=3,
-                              name='cutleryA')
+                              nbrows=3, name='cutleryA')
 cutleryA.ViewObject.ShapeColor = (0.80, 0.80, 0.40)
 
 cutleryB = generate_separator(width=280, depth=420, woodwidth=10, cutlerydepth=260, nblongcols=1, nbshortcols=3,
-                              name='cutleryB')
+                              nbrows=2, name='cutleryB')
 cutleryB.Placement.Base = FreeCAD.Vector(300, 0, 0)
 cutleryB.ViewObject.ShapeColor = (0.27, 0.80, 0.80)
 
 cutleryC = generate_separator(width=280, depth=360, woodwidth=10, cutlerydepth=260, nblongcols=2, nbshortcols=2,
-                              name='cutleryC')
+                              nbrows=1, name='cutleryC')
 cutleryC.Placement.Base = FreeCAD.Vector(600, 0, 0)
 cutleryC.ViewObject.ShapeColor = (0.80, 0.53, 0.80)
 
