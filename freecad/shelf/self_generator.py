@@ -150,28 +150,36 @@ NBROWS=9
 ROWHIGHT=300
 DIMLEVEL1=2*ROWHIGHT
 DIMLEVEL2=ROWHIGHT
+NBCOL1=2
+NBCOL2=1
+NBCOL3=1
+WIDTHCOL1=250
+WIDTHCOL2=500
+WIDTHCOL3=500
+
+# Compute values
+totalhight = NBROWS*(ROWHIGHT+WOODWIDTH)+(2*WOODWIDTH)
+col1=0
+col2=WOODWIDTH+NBCOL1*(WOODWIDTH+WIDTHCOL1)
+col3=col2+2*WOODWIDTH+WIDTHCOL2
+totalwidth = col3+2*WOODWIDTH+WIDTHCOL3
 
 # Left Part
-shelfA = generate_self(nbcols=2, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=250, name='meuble_gauche', depth=DEPTH, woodwidth=WOODWIDTH)
+shelfA = generate_self(nbcols=NBCOL1, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=WIDTHCOL1, name='meuble_gauche', depth=DEPTH, woodwidth=WOODWIDTH)
 shelfA.ViewObject.ShapeColor = (0.80, 0.80, 0.40)
 
 # Central part
-shelfB = generate_self(nbcols=1, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=500, ignorerows=[5, 6, 7], name='meuble_central', depth=DEPTH, woodwidth=WOODWIDTH)
-shelfB.Placement.Base = FreeCAD.Vector(560, 0, 0)
+shelfB = generate_self(nbcols=NBCOL2, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=WIDTHCOL2, ignorerows=[5, 6, 7], name='meuble_central', depth=DEPTH, woodwidth=WOODWIDTH)
+shelfB.Placement.Base = FreeCAD.Vector(col2, 0, 0)
 shelfB.ViewObject.ShapeColor = (0.27, 0.80, 0.80)
 
 # Right part
-shelfC = generate_self(nbcols=1, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=500, ignorerows=[5, 7], name='meuble_droit', depth=DEPTH, woodwidth=WOODWIDTH)
-shelfC.Placement.Base = FreeCAD.Vector(1100, 0, 0)
+shelfC = generate_self(nbcols=NBCOL3, nbrows=NBROWS, rowhight=ROWHIGHT, colwidth=WIDTHCOL3, ignorerows=[5, 7], name='meuble_droit', depth=DEPTH, woodwidth=WOODWIDTH)
+shelfC.Placement.Base = FreeCAD.Vector(col3, 0, 0)
 shelfC.ViewObject.ShapeColor = (0.80, 0.53, 0.80)
 
 #Init Dimensions
 FreeCADGui.activateWorkbench("DraftWorkbench")
-totalhight = NBROWS*(ROWHIGHT+WOODWIDTH)+(2*WOODWIDTH)
-totalwidth = 1640
-col1=0
-col2=3*WOODWIDTH+500
-col3=col2+2*WOODWIDTH+500
 
 # Horizontal plane
 p1 = FreeCAD.Vector(col1,0,0)
@@ -179,15 +187,11 @@ p2 = FreeCAD.Vector(col2,0,0)
 p3 = FreeCAD.Vector(0,-DIMLEVEL1,0)
 DrawDim(p1,p2,p3,"Col 1",extlines=DIMLEVEL1-50)
 #
-p1 = FreeCAD.Vector(col1+WOODWIDTH,0,0)
-p2 = FreeCAD.Vector(col1+WOODWIDTH+250,0,0)
-p3 = FreeCAD.Vector(0,-DIMLEVEL2,0)
-DrawDim(p1,p2,p3,"Col 1.1",extlines=DIMLEVEL2-50)
-#
-p1 = FreeCAD.Vector(col1+WOODWIDTH+250+WOODWIDTH,0,0)
-p2 = FreeCAD.Vector(col1+WOODWIDTH+250+WOODWIDTH+250,0,0)
-p3 = FreeCAD.Vector(0,-DIMLEVEL2,0)
-DrawDim(p1,p2,p3,"Col 1.2",extlines=DIMLEVEL2-50)
+for i in range(NBCOL1):
+    p1 = FreeCAD.Vector(col1+WOODWIDTH+(i*(WIDTHCOL1+WOODWIDTH)),0,0)
+    p2 = FreeCAD.Vector(col1+WOODWIDTH+(i*(WIDTHCOL1+WOODWIDTH))+250,0,0)
+    p3 = FreeCAD.Vector(0,-DIMLEVEL2,0)
+    DrawDim(p1,p2,p3,"Col 1.%(i)s" % locals(),extlines=DIMLEVEL2-50)
 #
 p1 = FreeCAD.Vector(col2,0,0)
 p2 = FreeCAD.Vector(col3,0,0)
