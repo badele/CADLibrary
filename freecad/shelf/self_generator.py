@@ -44,11 +44,11 @@ def horizontal_shelf(length=0, width=0, height=20, pos=FreeCAD.Vector(), name=""
     doc = FreeCAD.ActiveDocument
     rows = doc.getObject('Rows')
     etagere = doc.addObject("Part::Feature", '%(name)s_horizontal%(id)s' % locals())
-    etagere.Shape = Part.makeBox(length, length, height, pos)
+    etagere.Shape = Part.makeBox(length, width, height, pos)
 
     # Add to inventory
-    mini = min(length,length)
-    maxi = max(length,length)
+    mini = min(length,width)
+    maxi = max(length,width)
     values = '%smm x %smm x %s mm' % (maxi, mini, height)
     values = (maxi, mini, height)
 
