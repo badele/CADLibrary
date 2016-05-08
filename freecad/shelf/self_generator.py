@@ -210,6 +210,12 @@ p3 = FreeCAD.Vector(0,-DIMLEVEL2,0)
 DrawDim(p1,p2,p3,"Col 3.1",extlines=DIMLEVEL2-50)
 #
 FreeCAD.DraftWorkingPlane.alignToPointAndAxis(FreeCAD.Vector(0,0,0), FreeCAD.Vector(0,-1,0), -400.0)
+p1 = FreeCAD.Vector(totalwidth,0,0)
+p2 = FreeCAD.Vector(totalwidth,DEPTH,0)
+p3 = FreeCAD.Vector(totalwidth+DIMLEVEL2,0,0)
+DrawDim(p1,p2,p3,"Total depth", extlines=DIMLEVEL2-50)
+#
+FreeCAD.DraftWorkingPlane.alignToPointAndAxis(FreeCAD.Vector(0,0,0), FreeCAD.Vector(0,-1,0), -400.0)
 p1 = FreeCAD.Vector(totalwidth,DEPTH,0)
 p2 = FreeCAD.Vector(totalwidth,DEPTH,totalhight)
 p3 = FreeCAD.Vector(totalwidth+DIMLEVEL2,DEPTH,0)
@@ -235,4 +241,4 @@ FreeCAD.ActiveDocument.recompute()
 # Save picture
 FreeCADGui.activeDocument().activeView().viewAxonometric()
 FreeCADGui.SendMsgToActiveView("ViewFit")
-FreeCADGui.activeDocument().activeView().saveImage('sample.png', 4096, 3072,'Current')
+FreeCADGui.activeDocument().activeView().saveImage('sample.png',4096,3072,'Current')
