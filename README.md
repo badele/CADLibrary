@@ -21,7 +21,7 @@ The CAD Library objects
 
 
 <img border="0" width="50%" height src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/wine_bottle_holder/wine_bottle_holder.png"/>
-<img border="0" width="50%" height src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/wine_bottle_holder/realised_wine_bottle_holder.jpg"/>
+<img border="0" width="50%" height src="https://github.com/badele/CADLibrary/blob/master/freecad/wine_bottle_holder/realised_wine_bottle_holder.jpg"/>
 <br/>
 
 
@@ -29,7 +29,7 @@ The CAD Library objects
 
 
 <img border="0" width="50%" height src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/business_card_holder/business_card_holder.png"/>
-<img border="0" width="50%" height src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/business_card_holder/realised_business_card_holder.jpg"/>
+<img border="0" width="50%" height src="https://github.com/badele/CADLibrary/blob/master/freecad/business_card_holder/realised_business_card_holder.jpg"/>
 <br/>
 
 
