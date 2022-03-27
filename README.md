@@ -4,7 +4,7 @@ The CAD Library objects
 
 **box_generator**
 
-<img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/box_generator/sample.png"/>
+<img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/box_generator/v1/sample.png"/>
 <br/>
 
 
