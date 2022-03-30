@@ -2,7 +2,20 @@
 
 The CAD Library objects
 
-**box_generator**
+
+**gamepad**
+
+<img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/gamepad/sample.png"/>
+<br/>
+
+
+**box_generator v2**
+
+<img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/box_generator/v2/sample.png"/>
+<br/>
+
+
+**box_generator v1**
 
 <img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/box_generator/v1/sample.png"/>
 <br/>
