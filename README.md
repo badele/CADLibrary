@@ -3,6 +3,13 @@
 The CAD Library objects
 
 
+**laptop stand**
+
+<img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/laptop_stand/sample.png"/>
+<br/>
+
+
+
 **gamepad**
 
 <img border="0" width="50%" src="https://raw.githubusercontent.com/badele/CADLibrary/master/freecad/gamepad/sample.png"/>
