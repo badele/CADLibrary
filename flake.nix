@@ -22,6 +22,9 @@
           name = "CADLibrary";
           targetPkgs = with pkgs; pkgs:
             [
+              # Openscad
+              openscad
+
               # Python
               python312
               micromamba
