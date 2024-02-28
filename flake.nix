@@ -22,6 +22,9 @@
           name = "CADLibrary";
           targetPkgs = with pkgs; pkgs:
             [
+              # just
+              just
+
               # Openscad
               openscad
 
