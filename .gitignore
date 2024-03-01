@@ -1,3 +1,4 @@
 .direnv
-.mamba
- __pycache__
+.vagrant
+.venv
+__pycache__

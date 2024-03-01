@@ -16,50 +16,45 @@
       in
       rec
       {
-        ##############################################################################
-        inherit overlay overlays;
-        devShell = (pkgs.buildFHSUserEnv {
-          name = "CADLibrary";
-          targetPkgs = with pkgs; pkgs:
-            [
-              # just
+        devShells.default = with pkgs;
+          mkShell {
+            name = "Default developpement shell";
+            packages = [
+              cocogitto
+              nixpkgs-fmt
+              nodePackages.markdownlint-cli
+              pre-commit
               just
 
-              # Openscad
               openscad
 
-              # Python
-              python312
-              micromamba
+              # python environment
+              python3
+              stdenv.cc.cc
+              zlib # for numpy
 
-              # Lint
-              pre-commit
-              nodePackages.markdownlint-cli
             ];
-          runScript = "./bootstrap.sh";
-        }).env;
+            shellHook = ''
+                export PROJ="CADLibrary"
+                export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib
+                export LD_LIBRARY_PATH=${pkgs.zlib}/lib:$LD_LIBRARY_PATH
+
+                if [ ! -e .venv ]; then
+                    python3 -m venv .venv
+                    . .venv/bin/activate
+                    pip install -r requirements.txt
+                    deactivate
+                fi
+
+              # Enable the virtual environment
+              . .venv/bin/activate
+
+                echo ""
+                echo "⭐ Welcome to the $PROJ project ⭐"
+                echo ""
+
+                just
+            '';
+          };
       });
-  ##############################################################################
-  #   devShells.default = with pkgs;
-  #     mkShell {
-  #       name = "Default developpement shell";
-  #       packages = [
-  #         cocogitto
-  #         nixpkgs-fmt
-  #         nodePackages.markdownlint-cli
-  #         pre-commit
-  #         just
-  #
-  #         openscad
-  #
-  #       ];
-  #       shellHook = ''
-  #         export PROJ="CADLibrary"
-  #
-  #         echo ""
-  #         echo "⭐ Welcome to the $PROJ project ⭐"
-  #         echo ""
-  #       '';
-  #     };
-  # });
 }

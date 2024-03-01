@@ -21,14 +21,13 @@ envname:=`basename $(pwd)`
 @lint:
     pre-commit run --all-files
 
-# Install a python environment
-@python-install:
-    rm -rf .mamba
-    micromamba create -y -n "{{envname}}" -c conda-forge -f .requirements.txt
-
 # Lock python environment
-@python-lock:
-    micromamba env export --explicit > .requirements.txt
+@env-lock:
+    pip freeze > requirements.txt
+
+# remove virtual env
+env-clean:
+    rm -rf .venv
 
 # Execute tests
 @test *args:
