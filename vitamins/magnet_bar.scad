@@ -16,20 +16,23 @@
 // You should have received a copy of the GNU General Public License along with CADLibrary.
 // If not, see <https://www.gnu.org/licenses/>.
 //
-
+//! Parkside Magnetic bar
+//
 include <NopSCADlib/utils/core/core.scad>
 include<../logo/parkside.scad>
 use <NopSCADlib/utils/round.scad>
 
-function mth_width(type) = type[2];
-function mth_depth(type) = type[3];
-function mth_height(type) = type[4];
-function mth_padding(type) = type[5];
-function mth_metaltickness(type) = type[6];
+function mth_width(type) = type[2];         //! magnetbar width
+function mth_depth(type) = type[3];         //! magnetbar depth
+function mth_height(type) = type[4];        //! magnetbar height
+function mth_padding(type) = type[5];       //! magnetbar padding
+function mth_metaltickness(type) = type[6]; //! magnetbar metaltickness
 
 // Source: https://www.lidl.be/p/fr-BE/porte-outils-magnetique-parkside/p100370664
-module magnetbar(type)
+module magnet_bar(type) //! Draw a parkside magnet bar
 {
+    vitamin(str("magnet_bar(", type[0], "): Magnetbar ", type[1]));
+
     width = mth_width(type);
     height = mth_height(type);
     depth = mth_depth(type);

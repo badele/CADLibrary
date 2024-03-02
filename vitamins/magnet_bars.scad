@@ -16,11 +16,13 @@
 // You should have received a copy of the GNU General Public License along with CADLibrary.
 // If not, see <https://www.gnu.org/licenses/>.
 //
+//! Magnetic bar
+//
 
-magnetbar_200 = [ "magnetbar_200", "magnetbar 200", 200, 25, 14, 25, 2 ];
-magnetbar_300 = [ "magnetbar_300", "magnetbar 300", 300, 25, 14, 25, 2 ];
-magnetbar_470 = [ "magnetbar_470", "magnetbar 470", 470, 25, 14, 35, 2 ];
+magnetbar_200 = [ "magnetbar_200", "200 wdith", 200, 25, 14, 25, 2 ];
+magnetbar_300 = [ "magnetbar_300", "300 width", 300, 25, 14, 25, 2 ];
+magnetbar_470 = [ "magnetbar_470", "470 width", 470, 25, 14, 35, 2 ];
 
 magnetbars = [ magnetbar_200, magnetbar_300, magnetbar_470 ];
 
-use <magnetbar.scad>
+use <magnet_bar.scad>

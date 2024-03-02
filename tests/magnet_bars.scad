@@ -20,9 +20,9 @@
 include <NopSCADlib/utils/core/core.scad>
 use <NopSCADlib/utils/layout.scad>
 
-include <../objects/magnetbars.scad>
+include <../vitamins/magnet_bars.scad>
 
-module magnetbars()
+module magnet_bars()
 {
     depth = mth_depth(magnetbars[0]);
     posx1 = mth_width(magnetbars[0]) / 2;
@@ -35,10 +35,10 @@ module magnetbars()
     {
         translate(posxyz[i])
         {
-            magnetbar(magnetbars[i]);
+            magnet_bar(magnetbars[i]);
         }
     }
 }
 
 if ($preview)
-    magnetbars();
+    magnet_bars();

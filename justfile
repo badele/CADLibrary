@@ -31,6 +31,7 @@ env-clean:
 
 # Execute tests
 @test *args:
+    rm ./libtest.png
     scripts/tests.py "$@"
 
 # Show installed packages
