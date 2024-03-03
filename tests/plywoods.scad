@@ -17,28 +17,12 @@
 // If not, see <https://www.gnu.org/licenses/>.
 //
 
-include <../vitamins/french_cleats.scad>
+include <../vitamins/plywood.scad>
 include <NopSCADlib/utils/core/core.scad>
 
-module french_cleats()
+module plywoods()
 {
-    width = 100;
-    height = 40;
-    depth = 15;
-
-    cutspace = 2;
-    space = 5;
-
-    // Standard french cleats
-    translate([ width / 2, 0, 0 ]) rotate([ 0, 0, -90 ]) french_cleat(french_cleats[0], width, height, depth, true);
-    translate([ width + width / 2 - height + cutspace, 0, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[1], width, height, depth, false);
-    //
-    // // // simple french cleats
-    translate([ width / 2, 0, 0 ]) rotate([ 0, 0, -90 ]) french_cleat(french_cleats[0], width, height, depth, true);
-    translate([ width + width / 2 - height + cutspace, 0, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[1], width, height, depth, false);
+    plywood_plank(nb_ply = 7, width = 100, height = 20, depth = 15);
 }
-
 if ($preview)
-    french_cleats();
+    plywoods();

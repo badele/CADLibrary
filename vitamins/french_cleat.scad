@@ -19,24 +19,41 @@
 //! French Cleat
 //
 
+include <./plywood.scad>
 include <NopSCADlib/utils/core/core.scad>
-use <NopSCADlib/utils/round.scad>
 
-module french_cleat(type, height, depth, width, bottom = true) //! Draw a french cleat
+module french_cleat(type, width, height, depth, bottom = true, nb_ply = 7) //! Draw a french cleat
 {
+    booleanerror = 0.02;
     direction = bottom ? "Bottom" : "Top";
 
-    vitamin(str("french_cleat(", type[0], ",", height, ",", depth, ",", width, ",", bottom, "): ", direction,
-                " french cleat ", type[1], " ", height, "x", depth, "x", width));
+    vitamin(str("french_cleat(", type[0], ",", width, ",", height, ",", depth, ",", bottom, "): ", direction,
+                " french cleat ", type[1], " ", width, "x", height, "x", depth));
 
     module fc_shape()
     {
-        bottomright = type[0] == "std" ? 0 : depth;
-        rotatez = bottom ? 0 : 180;
+        issimple = type[0] == "simple";
+        rotatez = bottom ? 0 : -180;
 
-        color("#C49769") rotate([ 0, 0, rotatez ]) translate([ -depth / 2, -height / 2 ])
-            linear_extrude(width, center = true)
-                polygon([ [ 0, 0 ], [ depth, bottomright ], [ depth, height ], [ 0, height - depth ] ]);
+        virtualwidth = width + booleanerror;
+        virtualheight = height + booleanerror;
+        virtualdepth = depth + booleanerror;
+
+        rotate([ 0, 0, rotatez ]) difference()
+        {
+            plywood_plank(nb_ply, height, width, depth);
+
+            // color("#ead2aa") rotate([ 0, 0, 180 ]) translate([ -virtualheight / 2, -virtualwidth / 2, 0 ])
+            //     right_triangle(virtualheight, virtualheight, virtualdepth);
+
+            // Easier to design, as there's no need to recut at right angles.
+            echo("ISISMPLE =====================", issimple);
+            if (issimple)
+            {
+#color("#ead2aa") rotate([ 0, 0, 0 ]) translate([ -virtualheight / 2, -virtualwidth / 2, 0 ])
+                right_triangle(virtualheight, virtualheight, virtualdepth);
+            }
+        }
     }
 
     module object()
