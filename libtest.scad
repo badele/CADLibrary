@@ -14,4 +14,4 @@ use <tests/plywoods.scad>;
 space = 2;
 
 magnet_bars();
-translate([ 0, 100, 0 ]) french_cleats();
+translate([ 165, 135, 9 ]) french_cleats();

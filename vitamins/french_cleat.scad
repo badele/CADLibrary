@@ -32,26 +32,27 @@ module french_cleat(type, width, height, depth, bottom = true, nb_ply = 7) //! D
 
     module fc_shape()
     {
-        issimple = type[0] == "simple";
+
+        isoptimised = type[0] == "opt";
         rotatez = bottom ? 0 : -180;
 
         virtualwidth = width + booleanerror;
         virtualheight = height + booleanerror;
         virtualdepth = depth + booleanerror;
 
-        rotate([ 0, 0, rotatez ]) difference()
+        rotate([ rotatez, 0, rotatez ]) difference() difference()
         {
             plywood_plank(nb_ply, height, width, depth);
 
-            // color("#ead2aa") rotate([ 0, 0, 180 ]) translate([ -virtualheight / 2, -virtualwidth / 2, 0 ])
-            //     right_triangle(virtualheight, virtualheight, virtualdepth);
+            color("#ead2aa") rotate([ 0, 90, -90 ])
+                translate([ -virtualdepth / 2, -virtualdepth / 2 - height / 2 + depth / 2, 0 ])
+                    right_triangle(virtualdepth, virtualdepth, virtualwidth);
 
             // Easier to design, as there's no need to recut at right angles.
-            echo("ISISMPLE =====================", issimple);
-            if (issimple)
+            if (isoptimised)
             {
-#color("#ead2aa") rotate([ 0, 0, 0 ]) translate([ -virtualheight / 2, -virtualwidth / 2, 0 ])
-                right_triangle(virtualheight, virtualheight, virtualdepth);
+                color("#ead2aa") rotate([ 90, 0, 180 ]) translate([ -virtualheight / 2, -virtualdepth / 2, 0 ])
+                    right_triangle(virtualdepth, virtualdepth, virtualwidth);
             }
         }
     }

@@ -23,21 +23,24 @@ include <NopSCADlib/utils/core/core.scad>
 module french_cleats()
 {
     width = 100;
-    height = 40;
+    height = 60;
     depth = 15;
 
     cutspace = 2;
     space = 5;
 
     // Standard french cleats
-    translate([ width / 2, 0, 0 ]) rotate([ 0, 0, -90 ]) french_cleat(french_cleats[0], width, height, depth, true);
-    translate([ width + width / 2 - height + cutspace, 0, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[1], width, height, depth, false);
-    //
-    // // // simple french cleats
-    translate([ width / 2, 0, 0 ]) rotate([ 0, 0, -90 ]) french_cleat(french_cleats[0], width, height, depth, true);
-    translate([ width + width / 2 - height + cutspace, 0, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[1], width, height, depth, false);
+    translate([ (height - depth + cutspace) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_std, width, height, depth, true);
+    translate([ -(height - depth + cutspace) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_std, width, height, depth, false);
+
+    // simple french cleats
+    translate([ (depth - 3 * height - space) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_opt, width, height, depth, true);
+
+    translate([ -cutspace + (3 * depth - 5 * height - space) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_opt, width, height, depth, false);
 }
 
 if ($preview)

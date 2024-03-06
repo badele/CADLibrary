@@ -34,9 +34,11 @@ French Cleat
 ### Vitamins
 | Qty | Module call | BOM entry |
 | ---:|:--- |:---|
-|   2 | `french_cleat(std,100,40,15,true)` |  Bottom french cleat standard 100x40x15 |
-|   4 | `plywood_plank(7,40,100,15)` |  Plywood plank |
-|   2 | `french_cleat(short,100,40,15,false)` |  Top french cleat short 100x40x15 |
+|   1 | `french_cleat(opt,100,60,15,true)` |  Bottom french cleat optimised 100x60x15 |
+|   1 | `french_cleat(std,100,60,15,true)` |  Bottom french cleat standard 100x60x15 |
+|   4 | `plywood_plank(7,60,100,15)` |  Plywood plank |
+|   1 | `french_cleat(opt,100,60,15,false)` |  Top french cleat optimised 100x60x15 |
+|   1 | `french_cleat(std,100,60,15,false)` |  Top french cleat standard 100x60x15 |
 
 
 <a href="#top">Top</a>

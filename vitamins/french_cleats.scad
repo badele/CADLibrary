@@ -20,8 +20,8 @@
 //
 
 frenchcleat_std = [ "std", "standard" ];
-frenchcleat_short = [ "short", "short" ];
+frenchcleat_opt = [ "opt", "optimised" ];
 
-french_cleats = [ frenchcleat_std, frenchcleat_short ];
+french_cleats = [ frenchcleat_std, frenchcleat_opt ];
 
 use <french_cleat.scad>
