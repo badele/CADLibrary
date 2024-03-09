@@ -27,7 +27,8 @@ function posz(idx, ply1th, ply2nd) = ceil(idx * 0.5) * ply1th + ceil(max(0, idx 
 
 module plywood_plank(nb_ply, width, height, depth) //! Draw a plywood plank
 {
-    vitamin(str("plywood_plank(", nb_ply, ",", width, ",", height, ",", depth, "): Plywood plank"));
+    vitamin(str("plywood_plank(", nb_ply, ",", width, ",", height, ",", depth, "):", nb_ply, " Plies plywood plank ",
+                width, "x", height, "x", depth, "mm"));
 
     ply1th = depth / realstep(nb_ply); // tickness (shortest)
     ply2nd = ply1th * 2;               // tickness (biggest)
