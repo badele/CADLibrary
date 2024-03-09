@@ -3,13 +3,33 @@
 I would share here my OpenSCAD designs, generally related to woodworking.
 
 I draw inspiration from the excellent [NopSCADlib](https://github.com/nophead/NopSCADlib) project by nophead.
+## Installation
+
+Install requirements
+
+- `direnv` - direnv execute a command when enter on this folder project
+- `nix` package manager for all systems ( Linux, MacOS, Windows)
+
+Once `direnv` and `nix` are installed, you just need to enter the project directory,
+and then this project will configure itself automatically (see bellow tasks)
+
+- Clone the NoptCADlib repository
+- Install requirement packages
+- Create python virtualenv
+
+## Usage
+
+```bash
+just inventories # Generate all vitamins
+just projects    # Generate all projects
+```
 
  <img src="libtest.png" width="100%"/>
 
 ## Table of Contents<a name="top"/>
 <table><tr>
 <th align="left"> Vitamins A-H </th><th align="left"> Vitamins I-Q </th><th align="left"> Vitamins R-Z </th></tr>
-<tr><td> <a href = "#french_cleats">French_cleats</a> </td><td> <a href = "#magnet_bars">Magnet_bars</a> </td><td></td></tr>
+<tr><td> <a href = "#french_cleats">French_cleats</a> </td><td> <a href = "#magnet_bars">Magnet_bars</a> </td><td> <a href = "#screwdrivers">Screwdrivers</a> </td></tr>
 <tr><td></td><td> <a href = "#plywoods">Plywoods</a> </td><td></td></tr>
 </table>
 
@@ -100,6 +120,33 @@ Plywood plank
 | Qty | Module call | BOM entry |
 | ---:|:--- |:---|
 |   1 | `plywood_plank(7,100,20,15)` |  Plywood plank |
+
+
+<a href="#top">Top</a>
+
+---
+<a name="screwdrivers"></a>
+## Screwdrivers
+Screwdriver
+
+[vitamins/screwdriver.scad](vitamins/screwdriver.scad) Implementation.
+
+[tests/screwdrivers.scad](tests/screwdrivers.scad) Code for this example.
+
+### Modules
+| Module | Description |
+|:--- |:--- |
+| `screwdriver(total_height, tool_height, max_diam, min_diam, washer_diam, tool_diam)` | Draw a screwdriver |
+
+![screwdrivers](tests/png/screwdrivers.png)
+
+### Vitamins
+| Qty | Module call | BOM entry |
+| ---:|:--- |:---|
+|   1 | `screwdriver(210,100,28.5,19,14.2,4.5,)` |  Screwdriver 210x100 |
+|   2 | `screwdriver(210,100,28.5,19,13.5,4.5,)` |  Screwdriver 210x100 |
+|   1 | `screwdriver(240,125,34.5,23,15.5,5.5,)` |  Screwdriver 240x125 |
+|   1 | `screwdriver(270,150,37.5,25,17,8,)` |  Screwdriver 270x150 |
 
 
 <a href="#top">Top</a>

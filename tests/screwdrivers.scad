@@ -17,27 +17,17 @@
 // If not, see <https://www.gnu.org/licenses/>.
 //
 
+include <../vitamins/screwdriver.scad>
 include <NopSCADlib/utils/core/core.scad>
 
-include <../vitamins/magnet_bars.scad>
-
-module magnet_bars()
+module screwdrivers()
 {
-    depth = mth_depth(magnetbars[0]);
-    posx1 = mth_width(magnetbars[0]) / 2;
-    posx2 = mth_width(magnetbars[0]) + 10 + mth_width(magnetbars[1] / 2);
-    posx3 = mth_width(magnetbars[2]) / 2;
-
-    posxyz = [[posx1, 2 * depth + 10, 0], [posx2, 2 * depth + 10, 0], [posx3, depth, 0]];
-
-    for (i = [0:len(magnetbars) - 1])
-    {
-        translate(posxyz[i])
-        {
-            magnet_bar(magnetbars[i]);
-        }
-    }
+    screwdriver(270, 150, 37.5, 25, 17, 8);
+    translate([ 45, 0, 0 ]) screwdriver(240, 125, 34.5, 23, 15.5, 5.5);
+    translate([ 90, 0, 0 ]) screwdriver(210, 100, 28.5, 19, 14.2, 4.5);
+    translate([ 130, 0, 0 ]) screwdriver(210, 100, 28.5, 19, 13.5, 4.5);
+    translate([ 170, 0, 0 ]) screwdriver(210, 100, 28.5, 19, 13.5, 4.5);
 }
 
 if ($preview)
-    magnet_bars();
+    screwdrivers();

@@ -8,6 +8,17 @@ envname:=`basename $(pwd)`
 @help:
     just -lu --list-heading=$'{{ file_name(justfile()) }} commands:\n'
 
+# Install requirements
+requirements-install:
+    #!/usr/bin/env bash
+    if [ ! -d ~/.local/share/OpenSCAD/libraries/NopSCADlib ]; then
+        echo "🔨 Download NopSCADlib Library"
+        curl -sL -o /tmp/NopSCADlib.zip  https://github.com/nophead/NopSCADlib/archive/refs/heads/master.zip
+        echo "🔨 Unzip NopSCADlib Library"
+        unzip -qd ~/.local/share/OpenSCAD/libraries/ /tmp/NopSCADlib.zip
+        mv ~/.local/share/OpenSCAD/libraries/NopSCADlib-master ~/.local/share/OpenSCAD/libraries/NopSCADlib
+    fi
+
 # Setup pre-commit
 @precommit-install:
     #!/usr/bin/env bash
@@ -30,9 +41,13 @@ env-clean:
     rm -rf .venv
 
 # Execute tests
-@test *args:
+@inventories *args:
     rm ./libtest.png
     scripts/tests.py "$@"
+
+# Execute tests
+@projects *args:
+    cd projects/screwdrivers_store && make_all.py
 
 # Show installed packages
 @packages:

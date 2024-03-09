@@ -3,15 +3,36 @@
 //! I would share here my OpenSCAD designs, generally related to woodworking.
 //!
 //! I draw inspiration from the excellent [NopSCADlib](https://github.com/nophead/NopSCADlib) project by nophead.
+//! ## Installation
+//!
+//! Install requirements
+//!
+//! - `direnv` - direnv execute a command when enter on this folder project
+//! - `nix` package manager for all systems ( Linux, MacOS, Windows)
+//!
+//! Once `direnv` and `nix` are installed, you just need to enter the project directory,
+//! and then this project will configure itself automatically (see bellow tasks)
+//!
+//! - Clone the NoptCADlib repository
+//! - Install requirement packages
+//! - Create python virtualenv
+//!
+//! ## Usage
+//!
+//! ```bash
+//! just inventories # Generate all vitamins
+//! just projects    # Generate all projects
+//! ```
 //!
 //!  <img src="libtest.png" width="100%"/>
+//
 // This file shows all the parts in the library.
 
 use <tests/french_cleats.scad>;
 use <tests/magnet_bars.scad>;
 use <tests/plywoods.scad>;
-
-space = 2;
+use <tests/screwdrivers.scad>;
 
 magnet_bars();
 translate([ 165, 135, 9 ]) french_cleats();
+translate([ 250, 80, 10 ]) rotate(-90, [ 1, 0, 0 ]) screwdrivers();
