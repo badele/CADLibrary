@@ -18,7 +18,6 @@
 //
 
 include <NopSCADlib/utils/core/core.scad>
-use <NopSCADlib/utils/layout.scad>
 
 include <../vitamins/magnet_bars.scad>
 
