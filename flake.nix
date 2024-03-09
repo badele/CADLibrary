@@ -26,6 +26,9 @@
               pre-commit
               just
 
+              git
+              unzip
+
               openscad
 
               # python environment
@@ -38,8 +41,14 @@
                 export PROJ="CADLibrary"
                 export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib
                 export LD_LIBRARY_PATH=${pkgs.zlib}/lib:$LD_LIBRARY_PATH
+                export PATH=~/.local/share/OpenSCAD/libraries/NopSCADlib/scripts:$PATH
 
+                # Clone NopSCADlib Library
+                just requirements-install
+
+                # Install virtualenv
                 if [ ! -e .venv ]; then
+                    echo "🔨 Init python environment"
                     python3 -m venv .venv
                     . .venv/bin/activate
                     pip install -r requirements.txt
