@@ -9,4 +9,5 @@ times.txt
 openscad.log
 tests/bom
 tests/deps
+*_diff.png
 

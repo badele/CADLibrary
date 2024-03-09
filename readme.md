@@ -10,12 +10,13 @@ I draw inspiration from the excellent [NopSCADlib](https://github.com/nophead/No
 <table><tr>
 <th align="left"> Vitamins A-H </th><th align="left"> Vitamins I-Q </th><th align="left"> Vitamins R-Z </th></tr>
 <tr><td> <a href = "#french_cleats">French_cleats</a> </td><td> <a href = "#magnet_bars">Magnet_bars</a> </td><td></td></tr>
+<tr><td></td><td> <a href = "#plywoods">Plywoods</a> </td><td></td></tr>
 </table>
 
 ---
 <a name="french_cleats"></a>
 ## French_cleats
-French cleat
+French Cleat
 
 [vitamins/french_cleats.scad](vitamins/french_cleats.scad) Object definitions.
 
@@ -26,17 +27,18 @@ French cleat
 ### Modules
 | Module | Description |
 |:--- |:--- |
-| `french_cleat(type, height, depth, width, bottom = true)` | Draw a french cleat |
+| `french_cleat(type, width, height, depth, bottom = true, nb_ply = 7)` | Draw a french cleat |
 
 ![french_cleats](tests/png/french_cleats.png)
 
 ### Vitamins
 | Qty | Module call | BOM entry |
 | ---:|:--- |:---|
-|   1 | `french_cleat(short,60,15,20,true)` |  Bottom french cleat short 60x15x20 |
-|   1 | `french_cleat(std,60,15,20,true)` |  Bottom french cleat standard 60x15x20 |
-|   1 | `french_cleat(short,60,15,20,false)` |  Top french cleat short 60x15x20 |
-|   1 | `french_cleat(std,60,15,20,false)` |  Top french cleat standard 60x15x20 |
+|   1 | `french_cleat(opt,100,60,15,true)` |  Bottom french cleat optimised 100x60x15 |
+|   1 | `french_cleat(std,100,60,15,true)` |  Bottom french cleat standard 100x60x15 |
+|   4 | `plywood_plank(7,60,100,15)` |  Plywood plank |
+|   1 | `french_cleat(opt,100,60,15,false)` |  Top french cleat optimised 100x60x15 |
+|   1 | `french_cleat(std,100,60,15,false)` |  Top french cleat standard 100x60x15 |
 
 
 <a href="#top">Top</a>
@@ -74,6 +76,30 @@ Parkside Magnetic bar
 |   1 | `magnet_bar(magnetbar_200)` |  Magnetbar 200 wdith |
 |   1 | `magnet_bar(magnetbar_300)` |  Magnetbar 300 width |
 |   1 | `magnet_bar(magnetbar_470)` |  Magnetbar 470 width |
+
+
+<a href="#top">Top</a>
+
+---
+<a name="plywoods"></a>
+## Plywoods
+Plywood plank
+
+[vitamins/plywood.scad](vitamins/plywood.scad) Implementation.
+
+[tests/plywoods.scad](tests/plywoods.scad) Code for this example.
+
+### Modules
+| Module | Description |
+|:--- |:--- |
+| `plywood_plank(nb_ply, width, height, depth)` | Draw a plywood plank |
+
+![plywoods](tests/png/plywoods.png)
+
+### Vitamins
+| Qty | Module call | BOM entry |
+| ---:|:--- |:---|
+|   1 | `plywood_plank(7,100,20,15)` |  Plywood plank |
 
 
 <a href="#top">Top</a>

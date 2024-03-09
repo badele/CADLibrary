@@ -9,8 +9,9 @@
 
 use <tests/french_cleats.scad>;
 use <tests/magnet_bars.scad>;
+use <tests/plywoods.scad>;
 
 space = 2;
 
 magnet_bars();
-translate([ 0, 82, 0 ]) french_cleats();
+translate([ 165, 135, 9 ]) french_cleats();

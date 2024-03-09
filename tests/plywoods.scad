@@ -16,12 +16,13 @@
 // You should have received a copy of the GNU General Public License along with CADLibrary.
 // If not, see <https://www.gnu.org/licenses/>.
 //
-//! French cleat
-//
 
-frenchcleat_std = [ "std", "standard" ];
-frenchcleat_opt = [ "opt", "optimised" ];
+include <../vitamins/plywood.scad>
+include <NopSCADlib/utils/core/core.scad>
 
-french_cleats = [ frenchcleat_std, frenchcleat_opt ];
-
-use <french_cleat.scad>
+module plywoods()
+{
+    plywood_plank(nb_ply = 7, width = 100, height = 20, depth = 15);
+}
+if ($preview)
+    plywoods();

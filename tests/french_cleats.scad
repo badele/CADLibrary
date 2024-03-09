@@ -17,28 +17,30 @@
 // If not, see <https://www.gnu.org/licenses/>.
 //
 
-include <NopSCADlib/utils/core/core.scad>
-use <NopSCADlib/utils/layout.scad>
-
 include <../vitamins/french_cleats.scad>
+include <NopSCADlib/utils/core/core.scad>
 
 module french_cleats()
 {
-    depth = 15;
+    width = 100;
     height = 60;
-    space = 1;
+    depth = 15;
+
+    cutspace = 2;
+    space = 5;
 
     // Standard french cleats
-    translate([ height / 2, 0, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[0], height = height, depth = depth, width = 20, bottom = true);
-    translate([ height / 2, 0, 0 ]) rotate([ 0, 0, -90 ]) translate([ 0, height - depth + space, 0 ])
-        french_cleat(french_cleats[0], height = height, depth = 15, width = 20, bottom = false);
+    translate([ (height - depth + cutspace) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_std, width, height, depth, true);
+    translate([ -(height - depth + cutspace) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_std, width, height, depth, false);
 
     // simple french cleats
-    translate([ height / 2, depth + space, 0 ]) rotate([ 0, 0, -90 ])
-        french_cleat(french_cleats[1], height = height, depth = depth, width = 20, bottom = true);
-    translate([ height / 2, depth + space, 0 ]) rotate([ 0, 0, -90 ]) translate([ 0, height - depth + space, 0 ])
-        french_cleat(french_cleats[1], height = height, depth = 15, width = 20, bottom = false);
+    translate([ (depth - 3 * height - space) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_opt, width, height, depth, true);
+
+    translate([ -cutspace + (3 * depth - 5 * height - space) / 2, 0, 0 ]) rotate([ 180, 0, 0 ])
+        french_cleat(frenchcleat_opt, width, height, depth, false);
 }
 
 if ($preview)
