@@ -41,9 +41,13 @@ env-clean:
     rm -rf .venv
 
 # Execute tests
-@test *args:
+@inventories *args:
     rm ./libtest.png
     scripts/tests.py "$@"
+
+# Execute tests
+@projects *args:
+    cd projects/screwdrivers_store && make_all.py
 
 # Show installed packages
 @packages:
