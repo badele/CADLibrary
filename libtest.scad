@@ -31,7 +31,7 @@
 //! | | |
 //! |-|-|
 //! | ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| |
-//! | [screwdrivers store](./projects/screwdriver_store) | |
+//! | [screwdrivers store](./projects/screwdrivers_store) | |
 //!
 //
 // This file shows all the parts in the library.

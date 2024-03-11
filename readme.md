@@ -31,7 +31,7 @@ just projects    # Generate all projects
 | | |
 |-|-|
 | ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| |
-| [screwdrivers store](./projects/screwdriver_store) | |
+| [screwdrivers store](./projects/screwdrivers_store) | |
 
 
 ## Table of Contents<a name="top"/>
