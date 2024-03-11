@@ -26,6 +26,14 @@ just projects    # Generate all projects
 
  <img src="libtest.png" width="100%"/>
 
+## Projects
+
+| | |
+|-|-|
+| ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| |
+| [screwdrivers store](./projects/screwdriver_store) | |
+
+
 ## Table of Contents<a name="top"/>
 <table><tr>
 <th align="left"> Vitamins A-H </th><th align="left"> Vitamins I-Q </th><th align="left"> Vitamins R-Z </th></tr>
@@ -56,9 +64,9 @@ French Cleat
 | ---:|:--- |:---|
 |   1 | `french_cleat(opt,100,60,15,true)` |  Bottom french cleat optimised 100x60x15 |
 |   1 | `french_cleat(std,100,60,15,true)` |  Bottom french cleat standard 100x60x15 |
-|   4 | `plywood_plank(7,60,100,15)` |  Plywood plank |
 |   1 | `french_cleat(opt,100,60,15,false)` |  Top french cleat optimised 100x60x15 |
 |   1 | `french_cleat(std,100,60,15,false)` |  Top french cleat standard 100x60x15 |
+|   4 | `plywood_plank(7,60,100,15)` | 7 Plies plywood plank 60x100x15mm |
 
 
 <a href="#top">Top</a>
@@ -119,7 +127,7 @@ Plywood plank
 ### Vitamins
 | Qty | Module call | BOM entry |
 | ---:|:--- |:---|
-|   1 | `plywood_plank(7,100,20,15)` |  Plywood plank |
+|   1 | `plywood_plank(7,100,20,15)` | 7 Plies plywood plank 100x20x15mm |
 
 
 <a href="#top">Top</a>

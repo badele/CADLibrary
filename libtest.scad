@@ -25,6 +25,14 @@
 //! ```
 //!
 //!  <img src="libtest.png" width="100%"/>
+//!
+//! ## Projects
+//!
+//! | | |
+//! |-|-|
+//! | ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| |
+//! | [screwdrivers store](./projects/screwdriver_store) | |
+//!
 //
 // This file shows all the parts in the library.
 
