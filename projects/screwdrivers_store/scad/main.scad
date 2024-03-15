@@ -1,15 +1,13 @@
 //!
 //! screwdrivers support
 //!
-//! It's my first project in OpenSCAD. I wanted to create a support for my screwdrivers.
+//! The screwdrivers store with french cleat support
 //!
 include <../../../vitamins/french_cleats.scad>
 include <../../../vitamins/plywood.scad>
 include <../../../vitamins/screwdriver.scad>
 include <NopSCADlib/lib.scad>
 
-$explode = 1;
-sd_support_width = 280;
 sd_support_height = 70;
 fc_height = 50;
 plank_nbply = 7;
@@ -101,7 +99,7 @@ module screwdrivers()
 }
 
 //!
-//! Assembly instructions in Markdown format in front of each module that makes an assembly.
+//! Assembly instructions
 //!
 module main_assembly() assembly("main")
 {
