@@ -21,7 +21,7 @@
 include <NopSCADlib/utils/core/core.scad>
 
 function nb_1th(nb_ply) = ceil(nb_ply / 2);
-function nb_2nd(nb_ply) = 7 - nb_1th(nb_ply);
+function nb_2nd(nb_ply) = nb_plywood - nb_1th(nb_ply);
 function realstep(nb_ply) = nb_ply + nb_2nd(nb_ply);
 function posz(idx, ply1th, ply2nd) = ceil(idx * 0.5) * ply1th + ceil(max(0, idx * 0.5 - 0.5)) * ply2nd;
 
