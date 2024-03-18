@@ -40,7 +40,10 @@ use <tests/french_cleats.scad>;
 use <tests/magnet_bars.scad>;
 use <tests/plywoods.scad>;
 use <tests/screwdrivers.scad>;
+use <tests/wood_cylinder.scad>;
 
 magnet_bars();
+translate([ 53, 210, 9 ]) plywoods();
+translate([ 165, 210, 9 ]) rotate([ 0, 90, 0 ]) wood_cylinders();
 translate([ 165, 135, 9 ]) french_cleats();
 translate([ 250, 80, 10 ]) rotate(-90, [ 1, 0, 0 ]) screwdrivers();

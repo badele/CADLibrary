@@ -38,7 +38,7 @@ just projects    # Generate all projects
 <table><tr>
 <th align="left"> Vitamins A-H </th><th align="left"> Vitamins I-Q </th><th align="left"> Vitamins R-Z </th></tr>
 <tr><td> <a href = "#french_cleats">French_cleats</a> </td><td> <a href = "#magnet_bars">Magnet_bars</a> </td><td> <a href = "#screwdrivers">Screwdrivers</a> </td></tr>
-<tr><td></td><td> <a href = "#plywoods">Plywoods</a> </td><td></td></tr>
+<tr><td></td><td> <a href = "#plywoods">Plywoods</a> </td><td> <a href = "#wood_cylinder">Wood_cylinder</a> </td></tr>
 </table>
 
 ---
@@ -155,6 +155,30 @@ Screwdriver
 |   2 | `screwdriver(210,100,28.5,19,13.5,4.5,)` |  Screwdriver 210x100 |
 |   1 | `screwdriver(240,125,34.5,23,15.5,5.5,)` |  Screwdriver 240x125 |
 |   1 | `screwdriver(270,150,37.5,25,17,8,)` |  Screwdriver 270x150 |
+
+
+<a href="#top">Top</a>
+
+---
+<a name="wood_cylinder"></a>
+## Wood_cylinder
+Wood cylinder
+
+[vitamins/wood_cylinder.scad](vitamins/wood_cylinder.scad) Implementation.
+
+[tests/wood_cylinder.scad](tests/wood_cylinder.scad) Code for this example.
+
+### Modules
+| Module | Description |
+|:--- |:--- |
+| `wood_cylinder(nb_ply, height, diameter)` | Draw a wood cylinder |
+
+![wood_cylinder](tests/png/wood_cylinder.png)
+
+### Vitamins
+| Qty | Module call | BOM entry |
+| ---:|:--- |:---|
+|   1 | `wood_cylinder(7,108,28)` | 7 Plies wood cylinder 108x28 mm |
 
 
 <a href="#top">Top</a>
