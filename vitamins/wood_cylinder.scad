@@ -16,44 +16,52 @@
 // You should have received a copy of the GNU General Public License along with CADLibrary.
 // If not, see <https://www.gnu.org/licenses/>.
 //
-//! Plywood plank
+//! Wood cylinder
 //
 include <NopSCADlib/utils/core/core.scad>
 
 function nb_1th(nb_ply) = ceil(nb_ply / 2);
-function nb_2nd(nb_ply) = nb_ply - nb_1th(nb_ply);
+function nb_2nd(nb_ply) = 7 - nb_1th(nb_ply);
 function realstep(nb_ply) = nb_ply + nb_2nd(nb_ply);
 function posz(idx, ply1th, ply2nd) = ceil(idx * 0.5) * ply1th + ceil(max(0, idx * 0.5 - 0.5)) * ply2nd;
 
-module plywood_plank(nb_ply, width, height, depth) //! Draw a plywood plank
+module wood_cylinder(nb_ply, height, diameter) //! Draw a wood cylinder
 {
-    vitamin(str("plywood_plank(", nb_ply, ",", width, ",", height, ",", depth, "):", nb_ply, " Plies plywood plank ",
-                width, "x", height, "x", depth, "mm"));
+    vitamin(str("wood_cylinder(", nb_ply, ",", height, ",", diameter, "):", nb_ply, " Plies wood cylinder ", height, "x", diameter," mm"));
 
-    ply1th = depth / realstep(nb_ply); // tickness (shortest)
-    ply2nd = ply1th * 2;               // tickness (biggest)
+    ply1th = diameter / realstep(nb_ply); // tickness (shortest)
+    ply2nd = ply1th * 2;           // tickness (biggest)
 
     color1th = "#ead2aa";
     color2nd = "#c0a680";
 
-    module plywood()
+    module slice_cylinder(h, d,thickness, color)
+    {
+        difference()
+        {
+            color(color) cylinder(h, d=d,center=true);
+            color(color) cylinder(h+2, d=d-thickness,center=true);
+        }
+    }
+
+    module wcylinder()
     {
         for (i = [0:nb_ply - 1])
         {
-            translate([ 0, 0, posz(i, ply1th, ply2nd) ]) if (i % 2 == 0)
+            if (i % 2 == 0)
             {
-                color(color1th) linear_extrude(ply1th, center = false) square([ width, height ], center = false);
+                color(color1th) slice_cylinder(height,diameter-posz(i, ply1th, ply2nd),ply1th);
             }
             else
             {
-                color(color2nd) linear_extrude(ply2nd, center = false) square([ width, height ], center = false);
+                color(color2nd) slice_cylinder(height,diameter-posz(i, ply1th, ply2nd),ply2nd);
             }
         }
     }
 
     module object()
     {
-        translate([ -width / 2, -height / 2, -depth / 2 ]) plywood();
+        wcylinder();
     }
 
     object();
