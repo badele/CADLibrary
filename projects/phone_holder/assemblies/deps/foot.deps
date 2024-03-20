@@ -1,0 +1,29 @@
+tmp/foot_assembly.png: \
+	/home/badele/ghq/github.com/badele/CADLibrary/projects/phone_holder/stls/foot.stl \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/inserts.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/rounded_cylinder.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/teardrops.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/sphere.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/bom.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/tube.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/maths.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/rounded_rectangle.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/polyholes.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/thread.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/quadrant.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/printed/foot.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/core.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/screws.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/washers.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/fillet.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/clip.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/sweep.scad \
+	tmp/png.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/core.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/global_defs.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/insert.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/washer.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/nuts.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/nut.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/global.scad \
+	/home/badele/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/screw.scad

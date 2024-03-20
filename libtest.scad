@@ -30,8 +30,8 @@
 //!
 //! | | |
 //! |-|-|
-//! | ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| |
-//! | [screwdrivers store](./projects/screwdrivers_store) | |
+//! | ![screwdrivers_store](./projects/screwdrivers_store/assemblies/main_assembly.png)| ![phone holder](./projects/phone_holder/assemblies/main_assembly.png) |
+//! | [screwdrivers store](./projects/screwdrivers_store) | [phone holder](./projects/phone_holder) |
 //!
 //
 // This file shows all the parts in the library.
