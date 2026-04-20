@@ -1,0 +1,2 @@
+build123d==0.10.0
+filewatcher123d @ git+https://github.com/jdegenstein/filewatcher123d@bf163bcfadfeb664c7c67b00852d069496fa2ccd
